@@ -12,6 +12,11 @@ int main(int argc,char *argv[])
     pid_t fatherpid = getpid();
     pid_t sonpid = pid;
 
+    printf("Родительский процесс\n");
+    sleep(3);
+    printf("fatherpid=%d\nsonpid=%d\n", fatherpid, sonpid);
+    sleep(3);
+
     char filename[30];
     sprintf(filename, "file_%d.txt", fatherpid);
     FILE *mf = fopen(filename, "wt");
@@ -26,6 +31,16 @@ int main(int argc,char *argv[])
   {
     pid_t sonpid = getpid();
     pid_t fatherppid = getppid();
+
+    sleep(5);
+    printf("Дочерний процесс\n");
+    sleep(3);
+    printf("fatherpid=%d\n", fatherppid);
+    sleep(3);
+    printf("Файлы созданы\n");
+    sleep(1);
+    printf("Выход\n");
+    sleep(1);
 
     char filename2[30];
     sprintf(filename2, "file_%d.txt", sonpid);
